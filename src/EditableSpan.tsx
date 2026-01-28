@@ -6,7 +6,7 @@ type Props = {
   onChange: (title: string) => void
 }
 
-export const EditableSpan = ({ value, onChange }: Props) => {
+export const EditableSpan = ({value, onChange}: Props) => {
   const [title, setTitle] = useState(value)
   const [isEditMode, setIsEditMode] = useState(false)
 
@@ -24,17 +24,19 @@ export const EditableSpan = ({ value, onChange }: Props) => {
   }
 
   return (
-      <>
-        {isEditMode ? (
-            <TextField variant={'outlined'}
-                       value={title}
-                       size={'small'}
-                       onChange={changeTitle}
-                       onBlur={turnOffEditMode}
-                       autoFocus/>
-        ) : (
-            <span onDoubleClick={turnOnEditMode}>{value}</span>
-        )}
-      </>
+    <>
+      {isEditMode ? (
+        <TextField
+          variant={'outlined'}
+          value={title}
+          size={'small'}
+          onChange={changeTitle}
+          onBlur={turnOffEditMode}
+          autoFocus
+        />
+      ) : (
+        <span onDoubleClick={turnOnEditMode}>{value}</span>
+      )}
+    </>
   )
 }
